@@ -1,0 +1,87 @@
+{% extends 'main.html' %}
+
+ {% block contenu %}
+
+<script>
+function imprimer(divName) {
+      var printContents = document.getElementById(divName).innerHTML;
+   var originalContents = document.body.innerHTML;
+   document.body.innerHTML = printContents;
+   window.print();
+   document.body.innerHTML = originalContents;
+   }
+</script>
+
+<style>
+table
+{
+    border-collapse: collapse;
+}
+td, th
+{
+    border: 1px solid black;
+}
+</style>
+
+
+
+<h2>Gestion des salaires</h2>
+{% csrf_token %}
+
+   <div class="card card-body" id="sectionAimprimer"><br>
+      <center> <font size="5pt" color="#478ac9"><b>Tableaux des salaires par employé</b></font></center>
+       <br>
+ <table>
+                    <tr>
+                        <th>Employé</th>
+                        <th>DATE</th>
+                        <th>Salaire base</th>
+                        <th>Indemnité de transport</th>
+                        <th>Indemnité de représentation</th>
+                        <th>Salaire brut</th>
+                        <th>Salaire Cotisable</th>
+                        <th>Salaire Taxable</th>
+                        <th>CNPS</th>
+                        <th>IRPP</th>
+                        <th>CAC</th>
+                        <th>CFC SALARIAL</th>
+                        <th>CRTV</th>
+                        <th>TC</th>
+                        <th>Total Retenus</th>
+                        <th>ACOMPTE</th>
+                        <th>SALAIRE NET 1</th>
+                        <th>SALAIRE NET</th>
+                    </tr>
+
+    {% for salaires in salaires %}
+                    <tr>
+                        <td>{{salaires.Employé.nomEmploye}}</td>
+                        <td>{{salaires.date}}</td>
+                        <td>{{salaires.salaireBase}}</td>
+                        <td>{{salaires.indemniteTransport}}</td>
+                        <td>{{salaires.indemniteRepresentation}}</td>
+                        <td>{{salaires.salaireBrut}}</td>
+                        <td>{{salaires.salaireCotisable}}</td>
+                        <td>{{salaires.salaireTaxable}}</td>
+                        <td>{{salaires.cnps}}</td>
+                        <td>{{salaires.irpp}}</td>
+                        <td>{{salaires.cac}}</td>
+                        <td>{{salaires.cfc}}</td>
+                        <td>{{salaires.crtv}}</td>
+                        <td>{{salaires.tc}}</td>
+                        <td>{{salaires.totalRetenus}}</td>
+                        <td>{{salaires.aCompte}}</td>
+                        <td>{{salaires.salaireNet1}}</td>
+                        <td>{{salaires.salaireNet}}</td>
+
+
+                    </tr>
+{% endfor %}
+                </table>
+
+<button onClick="imprimer('sectionAimprimer')" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-5 u-hover-custom-color-7 u-radius-50 u-text-body-alt-color u-text-hover-white u-btn-1 retour"><font color="white">Imprimer</font></button>
+
+
+
+
+ {% endblock %}

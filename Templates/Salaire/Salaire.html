@@ -1,0 +1,60 @@
+{% extends 'main.html' %}
+
+ {% block contenu %}
+
+<script>
+function imprimer(divName) {
+      var printContents = document.getElementById(divName).innerHTML;
+   var originalContents = document.body.innerHTML;
+   document.body.innerHTML = printContents;
+   window.print();
+   document.body.innerHTML = originalContents;
+   }
+</script>
+
+<style>
+table
+{
+    border-collapse: collapse;
+}
+td, th
+{
+    border: 1px solid black;
+}
+</style>
+
+
+{% csrf_token %}
+   <div class="card card-body" id="sectionAimprimer"><br>
+      <center> <font size="5pt" color="#478ac9"><b>BULLETIN DE PAIE</b></font></center>
+       <br>
+ <table>
+                    <tr>
+                        <tr><th>Employé</th><td>{{nomEmploye}}</td></tr>
+                        <tr><th>Salaire base</th><td>{{salaireBase}}</td></tr>
+                        <tr><th>Indemnité de transport</th><td>{{indTransport}}</td></tr>
+                        <tr><th>Indemnité de représentation</th><td>{{indRepresentation}}</td></tr>
+                        <tr><th>Salaire brut</th><td>{{salaireBrut}}</td></tr>
+                        <tr><th>Salaire Cotisable</th><td>{{salaireCotisable}}</td></tr>
+                        <tr><th>Salaire Taxable</th><td>{{salaireTaxable}}</td></tr>
+                        <tr><th>CNPS</th><td>{{cnps}}</td></tr>
+                        <tr><th>IRPP</th><td>{{irpp}}</td></tr>
+                        <tr><th>CAC</th><td>{{cac}}</td></tr>
+                        <tr><th>CFC SALARIAL</th><td>{{cfcSalarial}}</td></tr>
+                        <tr><th>CRTV</th><td>{{crtv}}</td></tr>
+                        <tr><th>TC</th><td>{{tc}}</td></tr>
+                        <tr><th>Total Retenus</th><td>{{totalRetenus}}</td></tr>
+                        <tr><th>SALAIRE NET 1</th><td>{{salaireNet1}}</td></tr>
+                        <tr><th>SALAIRE NET</th><td>{{salaireNet}}</td></tr>
+
+                </table>
+<button onClick="imprimer('sectionAimprimer')" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-5 u-hover-custom-color-7 u-radius-50 u-text-body-alt-color u-text-hover-white u-btn-1 retour"><font color="white">Imprimer</font></button>
+
+
+
+
+
+
+
+
+ {% endblock %}

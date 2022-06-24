@@ -1,0 +1,34 @@
+
+{% extends 'main.html' %}
+ {% load static %}
+ {% block contenu %}
+
+ <style>
+
+ body {
+
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          background-size: cover;
+
+          }
+ </style>
+
+
+
+    <div>
+        <a href="entrepriseInfo" class="affichinfo"> Afficher les informations sur l'entreprise</a><br>
+        <!--<a href="" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-5 u-hover-custom-color-7 u-radius-50 u-text-body-alt-color u-text-hover-white u-btn-1 inscrire">Modifier les informationd de l'entreprise</a><br>-->
+        {% if cle %}
+            {% for element in cle %}
+        <a href="{% url 'modifientreprise' element.id %}" class="modifinfo">Modifier les informations sur l'entreprise</a><br>
+            {% endfor %}
+        {% else %}
+        <a href="entrepriseAjout" class="ajoutinfo">Ajouter les informations sur l'entreprise</a><br>
+        {% endif %}
+    </div>
+
+
+  {% endblock %}
+
+

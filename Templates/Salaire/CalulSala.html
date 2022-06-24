@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+
+ {% block contenu %}
+
+
+
+
+
+
+<h2>Gestion des salaires</h2>
+{% csrf_token %}
+
+
+ <form method="POST" class="u-clearfix u-form-spacing-8 u-form-vertical u-inner-form" source="custom" name="form-1" style="padding: 6px;">
+
+              {% csrf_token %}
+                <div class="u-form-group u-form-name" style="color : black">
+                  <label for="name-44a6" class="u-form-control-hidden u-label"></label>Indemnité de transport
+                  {{ monformindemnites.indemniteTransport }}
+                </div>
+
+                <div class="u-form-group u-form-name" style="color : black">
+                  <label for="name-44a6" class="u-form-control-hidden u-label"></label>Indemnité de représentation
+                  {{ monformindemnites.indemniteRepresentation }}
+
+                </div>
+
+                <div class="u-form-group u-form-name" style="color : black">
+                  <label for="name-44a6" class="u-form-control-hidden u-label"></label>Acompte
+                  {{ monformindemnites.aCompte }}
+                </div>
+
+
+                <span class="u-align-center u-form-group u-form-submit u-form-group-3">
+                  <a href="" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-5 u-hover-custom-color-7 u-radius-50 u-text-body-alt-color u-text-hover-white u-btn-1 inscrire">Retour</a>
+                  <button type="submit" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-5 u-hover-custom-color-7 u-radius-50 u-text-body-alt-color u-text-hover-white u-btn-1 retour"><font color="white">OK</font></button>
+                </span>
+
+                <input type="hidden" value="" name="recaptchaResponse">
+        </form>
+
+
+
+
+
+
+
+ {% endblock %}

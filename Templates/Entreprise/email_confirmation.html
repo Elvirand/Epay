@@ -1,0 +1,15 @@
+{% autoescape off %}
+
+
+Bienvenue sur Django Login
+
+Salut {{ fname }}
+
+Sil te plaît confirme ton email en cliquant sur ce lien :
+
+Lien de Confirmation : http://{{ domain }}{% url 'activate' uid token %}
+
+
+
+{% endautoescape  %}
+

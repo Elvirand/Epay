@@ -1,0 +1,363 @@
+{% load static %}
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/images/favicon.png' %}"   >
+    <title>epay.entreprise</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'assets/extra-libs/c3/c3.min.css' %}" type="text/css"  >
+    <link rel="stylesheet" href="{% static 'assets/libs/chartist/dist/chartist.min.css' %}" type="text/css" >
+    <link rel="stylesheet" href="{% static 'assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css' %}" type="text/css" >
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'dist/css/style.min.css' %}"  type="text/css" >
+    <script >
+        $(document).ready(function () {
+             $('#sidebarCollapse').on('click', function () {
+                 $('#sidebar').toggleClass('active');
+             });
+         });
+        </script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="{% static 'https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js' %}"></script>
+    <script src="{% static 'https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js' %}"></script>
+<![endif]-->
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar" data-navbarbg="skin6">
+            <nav class="navbar top-navbar navbar-expand-md">
+                <div class="navbar-header" data-logobg="skin6">
+                    <!-- This is for the sidebar toggle which is visible on mobile only -->
+                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
+                            class="ti-menu ti-close"></i></a>
+                    <!-- ============================================================== -->
+                    <!-- Logo -->
+                    <!-- ============================================================== -->
+
+                    <!-- ============================================================== -->
+                    <!-- End Logo -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- Toggle which is visible on mobile only -->
+                    <!-- ============================================================== -->
+                    <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)"
+                        data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i
+                            class="ti-more"></i></a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav float-left mr-auto ml-3 pl-1">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i data-feather="settings" class="svg-icon"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Actions</a>
+                                <a class="dropdown-item" href="#">Plus d'actions</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Politique de confidentialité</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- Right side toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav float-right">
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <img src="{% static 'assets/images/users/profile-pic.jpg' %}" alt="user" class="rounded-circle"
+                                    width="40">
+                                <span class="ml-2 d-none d-lg-inline-block"><span><span
+                                        class="text-dark">epay</span> <i data-feather="chevron-down"
+                                        class="svg-icon"></i></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
+                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="user"
+                                        class="svg-icon mr-2 ml-1"></i>
+                                    Mon profil</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="credit-card"
+                                        class="svg-icon mr-2 ml-1"></i>
+                                    Mon compte</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="mail"
+                                        class="svg-icon mr-2 ml-1"></i>
+                                    Mails</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="settings"
+                                        class="svg-icon mr-2 ml-1"></i>
+                                    Paramètres du compte</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="power"
+                                        class="svg-icon mr-2 ml-1"></i>
+                                    Déconnexion</a>
+                                <div class="dropdown-divider"></div>
+                                <div class="pl-4 p-3"><a href="javascript:void(0)" class="btn btn-sm btn-info">Voir mon profil</a></div>
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+
+
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-7 align-self-center">
+                        <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Bonjour epay!</h3>
+                        <div class="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb m-0 p-0">
+                                    <li class="breadcrumb-item"><a href="deco">Tableau de bord</a>
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- *************************************************************** -->
+                <!-- Start First Cards -->
+                <!-- *************************************************************** -->
+                <div class="card-group">
+                    <div class="card border-right">
+                        <div class="card-body">
+                            <div class="d-flex d-lg-flex d-md-block align-items-center">
+                                <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Liste des employés</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- *************************************************************** -->
+                <!-- End First Cards -->
+                <!-- *************************************************************** -->
+                <!-- *************************************************************** -->
+                <!-- Start Sales Charts Section -->
+                <!-- *************************************************************** -->
+<script>
+    function imprimer(divName) {
+          var printContents = document.getElementById(divName).innerHTML;
+       var originalContents = document.body.innerHTML;
+       document.body.innerHTML = printContents;
+       window.print();
+       document.body.innerHTML = originalContents;
+       }
+    </script>
+
+        <style>
+
+            table{
+               transform:scale(0.9);
+                box-sizing: border-box;
+                border-collapse: collapse;
+                font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+            }
+
+            th{
+                color: white;
+                background-color: #6c757d;
+            }
+
+            td{
+                color: #6c757d;
+                background-color: transparent;
+            }
+
+            th,td{
+                padding-top: 1px;
+                padding-bottom: 1px;
+                border-top:none;
+                border-bottom: 1px solid #6c757d;
+                border-right: none;
+                border-left: none;
+                text-align: left;
+                vertical-align: bottom;
+
+                word-wrap:none;
+                font-weight:0.5em;
+            }
+            .u{
+            border-radius:2px;
+            color:#6c757d;
+            background-color:transparent;
+            width:180px;
+            font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+            border:2px solid #6c757d;
+            margin-left:01.5em;
+            }
+            .u:hover{
+            transform:scale(1.1);
+            transition: 0.2s;
+            color:white;
+            background-color:#6c757d;
+            }
+            #section{
+            margin-left:-75px;
+            }
+            .supprimer{
+            text-decoration:none;
+            }
+            .supprimer:hover{
+            color:red;
+            }
+        </style>
+        <div class="card card-body" id="sectionAimprimer">
+   <div id="section">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">D. Naiss</th>
+                <th scope="col">L. Naiss</th>
+                <th scope="col">Sexe</th>
+                <th scope="col">Nationalité</th>
+                <th scope="col">Fonction</th>
+                <th scope="col">Type contrat</th>
+                <th scope="col">D.recrutement</th>
+                <th scope="col">Expiration</th>
+                <th scope="col">Salaire base</th>
+                <th scope="col">Salaire net</th>
+                <th colspan="3">Options</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for Employes in Employes %}
+              <tr>
+                            <td><a>{{Employes.nomEmploye}}</a> </td>
+                            <td>{{Employes.prenomEmploye}}      </td>
+                            <td>{{Employes.dateNaissance}}      </td>
+                            <td>{{Employes.lieuNaissance}}      </td>
+                            <td>{{Employes.sexe}}               </td>
+                            <td>{{Employes.nationalite}}        </td>
+                            <td>{{Employes.fonction}}           </td>
+                            <td>{{Employes.typeContrat}}        </td>
+                            <td>{{Employes.dateRecrutement}}    </td>
+                            <td>{{Employes.dateFin}}            </td>
+                            <td>{{Employes.salaireBase}}        </td>
+                            <td>{{Employes.salaireNet}}         </td>
+                            <td> <a href="{% url 'modifiemploye' Employes.pk %}">Modifier</a>       </td>
+                            <td><a class="supprimer" href=" {% url 'supp' employe_id=Employes.id %} "> Supprimer</a>  </td>
+                            <td> <a href="{% url 'idem' Employes.id %}">Salaire</a>                 </td>
+                {%endfor%}
+              </tr>
+            </tbody>
+          </table>
+       </div>
+        </div>
+                <button onClick="imprimer('sectionAimprimer')" class="u">Imprimer</button>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer text-center text-muted">
+                Tous droits réservés par epay.entreprises. Conçu et développé par <a
+                    href="https://wrappixel.com/">epay.entreprises@gmail.com</a>.
+            </footer>
+
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        {% block contenu %}
+        {% endblock %}
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="{% static 'assets/libs/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/libs/popper.js/dist/umd/popper.min.js' %}"></script>
+    <script src="{% static 'assets/libs/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <!-- apps -->
+    <!-- apps -->
+    <script src="{% static 'dist/js/app-style-switcher.js' %}"></script>
+    <script src="{% static 'dist/js/feather.min.js' %}"></script>
+    <script src="{% static 'assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js' %}"></script>
+    <script src="{% static 'dist/js/sidebarmenu.js' %}"></script>
+    <!--Custom JavaScript -->
+    <script src="{% static 'dist/js/custom.min.js' %}"></script>
+    <!--This page JavaScript -->
+    <script src="{% static 'assets/extra-libs/c3/d3.min.js' %}"></script>
+    <script src="{% static 'assets/extra-libs/c3/c3.min.js' %}"></script>
+    <script src="{% static 'assets/libs/chartist/dist/chartist.min.js' %}"></script>
+    <script src="{% static 'assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js' %}"></script>
+    <script src="{% static 'assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js' %}"></script>
+    <script src="{% static 'assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js' %}"></script>
+    <script src="{% static 'dist/js/pages/dashboards/dashboard1.min.js' %}"></script>
+</body>
+
+</html>
+  <link rel="stylesheet" href="{% static 'assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css' %}" type="text/css" >
+    <!-- Custom CSS -->
